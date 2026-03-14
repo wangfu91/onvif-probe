@@ -1,0 +1,23 @@
+[package]
+name = "onvif-probe"
+version = "0.1.0"
+edition = "2024"
+description = "Probe ONVIF devices and surface RTSP stream URLs, including TP-Link/Tapo dual-lens camera quirks"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/wangfu91/onvif-probe"
+homepage = "https://github.com/wangfu91/onvif-probe"
+keywords = ["onvif", "rtsp", "camera", "tapo", "tp-link"]
+categories = ["command-line-utilities", "network-programming"]
+
+[dependencies]
+onvif-rs = "0.0.4"
+base64 = "0.22"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+rand = "0.8"
+reqwest = { version = "0.12", default-features = false, features = [
+    "blocking",
+    "rustls-tls",
+] }
+roxmltree = "0.20"
+sha1 = "0.10"
