@@ -70,21 +70,21 @@ If `--xaddr` is omitted, the tool uses the first ONVIF device service endpoint r
 ```text
 Found 1 ONVIF device(s):
 1. TP-IPC
-   xaddrs: http://192.168.50.124:2020/onvif/device_service
+  xaddrs: http://192.168.1.10:2020/onvif/device_service
 
 Advertised ONVIF services:
-- Media -> http://192.168.50.124:2020/onvif/service
-- PTZ -> http://192.168.50.124:2020/onvif/service
+- Media -> http://192.168.1.10:2020/onvif/service
+- PTZ -> http://192.168.1.10:2020/onvif/service
 
 Found 2 media profile(s):
-- mainStream [profile_1] source=raw_vs1 -> rtsp://192.168.50.124:554/stream1
-- minorStream [profile_2] source=raw_vs1 -> rtsp://192.168.50.124:554/stream2
+- mainStream [profile_1] source=raw_vs1 -> rtsp://192.168.1.10:554/stream1
+- minorStream [profile_2] source=raw_vs1 -> rtsp://192.168.1.10:554/stream2
 
 Known RTSP URLs:
-- PTZ lens HD: rtsp://<username>:<password>@192.168.50.124:554/stream1 (3840x2160)
-- PTZ lens SD: rtsp://<username>:<password>@192.168.50.124:554/stream2 (640x360)
-- fixed lens HD: rtsp://<username>:<password>@192.168.50.124:554/stream1?channel=2 (2560x1440)
-- fixed lens SD: rtsp://<username>:<password>@192.168.50.124:554/stream2?channel=2 (320x240)
+- PTZ lens HD: rtsp://<username>:<password>@192.168.1.10:554/stream1 (3840x2160)
+- PTZ lens SD: rtsp://<username>:<password>@192.168.1.10:554/stream2 (640x360)
+- fixed lens HD: rtsp://<username>:<password>@192.168.1.10:554/stream1?channel=2 (2560x1440)
+- fixed lens SD: rtsp://<username>:<password>@192.168.1.10:554/stream2?channel=2 (320x240)
 ```
 
 ## TP-Link/Tapo Notes
@@ -114,3 +114,10 @@ This is not guaranteed across all firmware or models, but it is a strong startin
 cargo fmt
 cargo check
 ```
+
+## CI
+
+GitHub Actions runs these checks on pushes and pull requests:
+
+- `cargo fmt --check`
+- `cargo check`
