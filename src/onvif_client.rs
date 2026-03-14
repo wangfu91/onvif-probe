@@ -1,7 +1,6 @@
 use base64::Engine;
 use base64::engine::general_purpose::STANDARD as BASE64;
 use chrono::Utc;
-use rand::RngCore;
 use reqwest::blocking::Client;
 use roxmltree::Document;
 use sha1::{Digest, Sha1};
@@ -241,8 +240,7 @@ fn soap_request(
 }
 
 fn build_soap_envelope(body: &str, username: &str, password: &str) -> String {
-    let mut nonce = [0_u8; 20];
-    rand::thread_rng().fill_bytes(&mut nonce);
+    let nonce: [u8; 20] = rand::random();
 
     let created = Utc::now().format("%Y-%m-%dT%H:%M:%S%.3fZ").to_string();
     let mut sha1 = Sha1::new();
